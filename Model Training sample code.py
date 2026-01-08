@@ -18,6 +18,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (accuracy_score, classification_report, confusion_matrix, roc_auc_score, roc_curve)
 import joblib
 import warnings
+import pickle
+
 warnings.filterwarnings('ignore')
 
 # Download required NLTK data
@@ -172,6 +174,7 @@ for name, model in models.items():
     print(f"{name} Accuracy: {accuracy:.4f}")
 
 
+
 print("\n============================================")
 print("6. DETAILED EVALUATION")
 print("============================================\n")
@@ -184,6 +187,10 @@ best_predictions = results[best_model_name]['predictions']
 print(f"\nBest Model: {best_model_name}")
 print(f"Accuracy: {results[best_model_name]['accuracy']:.4f}")
 print(f"Prediction: {best_predictions}")
+
+with open('model.pkl', 'wb') as files:
+    pickle.dump(best_model, files)
+print(f"\nBest model saved as 'model.pkl'")
 
 # Classification Report
 print(f"\nClassification Report for {best_model_name}:\n")
