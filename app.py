@@ -15,7 +15,7 @@ print(f"\nCurrent script path: {current_file_path}\nCurrent directory: {Current_
 # Construct the path to Model.pkl in the parent directory
 # parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 model_path = os.path.join(Current_dir, "model.pkl")
-print(f"Corrected model path: {model_path}")
+print(f"\nCorrected model path: {model_path}")
 
 # os.path.dirname(__file__) — Returns the directory in which the current script (__file__) is located.
 # os.pardir — Refers to the parent directory (usually "..").
