@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount a locally trained model into the container. Train one first
+      # with: python training/train.py
+      - ./model.pkl:/app/model.pkl:ro
+    environment:
+      - FLASK_DEBUG=false
