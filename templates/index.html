@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Fake News Detection</title>
+    </head>
+    <body>
+        <h1>Fake News Detection</h1>
+        <form action="/" method="POST">
+            <textarea name="txt" rows="6" cols="60" maxlength="20000" placeholder="Paste article text here...">{{ submitted_text }}</textarea>
+            <br/>
+            <input type="submit" name="submit" value="Check">
+        </form>
+
+        {% if error %}
+        <div>
+            <p style="color: red;">{{ error }}</p>
+        </div>
+        {% endif %}
+
+        {% if result is not none %}
+        <div>
+            <h3>Result</h3>
+            {% if result == 1 %}
+            <p style="color: red;">Fake News</p>
+            {% else %}
+            <p style="color: seagreen;">Real News</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </body>
+</html>
